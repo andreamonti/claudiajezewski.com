@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claudia Jezewski</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            overflow: hidden;
+        }
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #444;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #666;
+        }
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #ff7f50;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        a:hover {
+            background-color: #ff6347;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Claudia Jezewski</h1>
+        <p>This site is currently under construction. Please check back soon for updates!</p>
+        <a href="mailto:info@claudiajezewski.com">Contact Me</a>
+    </div>
+    <script>
+        // GSAP animation for the container
+        gsap.fromTo(".container", 
+            { opacity: 0, scale: 0.8 }, 
+            { opacity: 1, scale: 1, duration: 1.5, ease: "power3.out" }
+        );
+
+        // Background animation
+        gsap.to("body", {
+            background: "linear-gradient(135deg, #fad0c4, #ff9a9e)",
+            duration: 3,
+            repeat: -1,
+            yoyo: true,
+        });
+    </script>
+</body>
+</html>
