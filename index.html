@@ -62,7 +62,7 @@
             background: #555;
             border-radius: 5px;
         }
-        #clue-box {
+        #clue-box, #answer-box {
             position: absolute;
             bottom: 10%;
             left: 50%;
@@ -86,6 +86,11 @@
 
     <div id="clue-box">
         <p>Clue 1: "What is something that belongs to you, but others use it more than you do?"</p>
+        <p class="hint" id="reveal-answer">Click here for the answer!</p>
+    </div>
+
+    <div id="answer-box">
+        <p>Your present is your own domain: <strong>claudiajezewski.com</strong> 🎉</p>
     </div>
 
     <script>
@@ -115,6 +120,8 @@
         // Show Clue Box
         const hint = document.querySelector(".hint");
         const clueBox = document.getElementById("clue-box");
+        const revealAnswer = document.getElementById("reveal-answer");
+        const answerBox = document.getElementById("answer-box");
 
         hint.addEventListener("click", () => {
             gsap.to(clueBox, {
@@ -124,6 +131,21 @@
                 ease: "power2.out"
             });
             hint.style.display = "none";
+        });
+
+        revealAnswer.addEventListener("click", () => {
+            gsap.to(answerBox, {
+                display: "block",
+                opacity: 1,
+                duration: 1,
+                ease: "power2.out"
+            });
+            gsap.to(clueBox, {
+                opacity: 0,
+                duration: 0.5,
+                ease: "power2.inOut",
+                onComplete: () => clueBox.style.display = "none"
+            });
         });
     </script>
 </body>
