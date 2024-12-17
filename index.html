@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>Happy Birthday!</title>
+    <title>Happy Birthday Treasure Hunt!</title>
     <style>
         body {
             margin: 0;
@@ -16,6 +16,7 @@
             height: 100vh;
             background: linear-gradient(135deg, #ff9a9e, #ffdde1);
             overflow: hidden;
+            position: relative;
         }
         .container {
             max-width: 600px;
@@ -33,10 +34,14 @@
             color: #ff69b4;
             text-shadow: 2px 2px #ffd1dc;
         }
-        p {
+        p, .hint {
             font-size: 1.5rem;
             margin-top: 10px;
             color: #ff85a2;
+        }
+        .hint {
+            cursor: pointer;
+            text-decoration: underline;
         }
         .balloon {
             position: absolute;
@@ -57,13 +62,30 @@
             background: #555;
             border-radius: 5px;
         }
+        #clue-box {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffdde1;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            display: none;
+            opacity: 0;
+        }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 <body>
     <div class="container">
         <h1>Happy Birthday!</h1>
-        <p>Wishing you the happiest day, full of fun and love!</p>
+        <p>There's a treasure hunt just for you! 🎉</p>
+        <p class="hint">Click here to start your adventure!</p>
+    </div>
+
+    <div id="clue-box">
+        <p>Clue 1: "What is something that belongs to you, but others use it more than you do?"</p>
     </div>
 
     <script>
@@ -88,9 +110,21 @@
                 onComplete: () => balloon.remove()
             });
         }
-        
-        // Create balloons continuously
         setInterval(createBalloon, 500);
+
+        // Show Clue Box
+        const hint = document.querySelector(".hint");
+        const clueBox = document.getElementById("clue-box");
+
+        hint.addEventListener("click", () => {
+            gsap.to(clueBox, {
+                display: "block",
+                opacity: 1,
+                duration: 1,
+                ease: "power2.out"
+            });
+            hint.style.display = "none";
+        });
     </script>
 </body>
 </html>
