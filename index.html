@@ -81,12 +81,12 @@
     <div class="container">
         <h1>Happy Birthday!</h1>
         <p>There's a treasure hunt just for you! 🎉</p>
-        <p class="hint">Click here to start your adventure!</p>
+        <p class="hint" id="start-hunt">Click here to start your adventure!</p>
     </div>
 
     <div id="clue-box">
-        <p>Clue 1: "What is something that belongs to you, but others use it more than you do?"</p>
-        <p class="hint" id="reveal-answer">Click here for the answer!</p>
+        <p id="clue-text">Clue 1: "What is something that belongs to you, but others use it more than you do?"</p>
+        <p class="hint" id="next-clue">Click here for the next clue!</p>
     </div>
 
     <div id="answer-box">
@@ -117,35 +117,49 @@
         }
         setInterval(createBalloon, 500);
 
-        // Show Clue Box
-        const hint = document.querySelector(".hint");
+        // Treasure Hunt Logic
+        const startHunt = document.getElementById("start-hunt");
         const clueBox = document.getElementById("clue-box");
-        const revealAnswer = document.getElementById("reveal-answer");
+        const nextClue = document.getElementById("next-clue");
+        const clueText = document.getElementById("clue-text");
         const answerBox = document.getElementById("answer-box");
 
-        hint.addEventListener("click", () => {
+        const clues = [
+            "Clue 1: \"What is something that belongs to you, but others use it more than you do?\",",
+            "Clue 2: \"What has keys but can’t open locks?\"",
+            "Clue 3: \"I’m always running, but I never move. What am I?\"",
+        ];
+
+        let currentClue = 0;
+
+        startHunt.addEventListener("click", () => {
             gsap.to(clueBox, {
                 display: "block",
                 opacity: 1,
                 duration: 1,
                 ease: "power2.out"
             });
-            hint.style.display = "none";
+            startHunt.style.display = "none";
         });
 
-        revealAnswer.addEventListener("click", () => {
-            gsap.to(answerBox, {
-                display: "block",
-                opacity: 1,
-                duration: 1,
-                ease: "power2.out"
-            });
-            gsap.to(clueBox, {
-                opacity: 0,
-                duration: 0.5,
-                ease: "power2.inOut",
-                onComplete: () => clueBox.style.display = "none"
-            });
+        nextClue.addEventListener("click", () => {
+            currentClue++;
+            if (currentClue < clues.length) {
+                clueText.textContent = clues[currentClue];
+            } else {
+                gsap.to(answerBox, {
+                    display: "block",
+                    opacity: 1,
+                    duration: 1,
+                    ease: "power2.out"
+                });
+                gsap.to(clueBox, {
+                    opacity: 0,
+                    duration: 0.5,
+                    ease: "power2.inOut",
+                    onComplete: () => clueBox.style.display = "none"
+                });
+            }
         });
     </script>
 </body>
