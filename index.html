@@ -12,12 +12,32 @@
             padding: 0;
             font-family: 'Comic Sans MS', cursive, sans-serif;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             height: 100vh;
             background: linear-gradient(135deg, #ff9a9e, #ffdde1);
             overflow: hidden;
             position: relative;
+        }
+        .menu {
+            width: 100%;
+            padding: 10px 20px;
+            background: #ff85a2;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            z-index: 10;
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0 15px;
+        }
+        .menu a:hover {
+            text-decoration: underline;
         }
         .container {
             max-width: 600px;
@@ -28,6 +48,7 @@
             text-align: center;
             opacity: 0;
             transform: scale(0.5);
+            margin-top: 80px;
         }
         h1 {
             font-size: 3rem;
@@ -79,6 +100,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 <body>
+    <div class="menu">
+        <a href="#news">In the News</a>
+    </div>
+
     <div class="container">
         <h1>Happy Birthday!</h1>
         <p>There's a treasure hunt just for you! 🎉</p>
