@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='40' r='30' fill='%23FF69B4'/><rect x='45' y='70' width='10' height='20' fill='%23555'/></svg>">
-    <title>Happy Birthday Treasure Hunt!</title>
+    <title>Happy Birthday!</title>
     <style>
         body {
             margin: 0;
@@ -56,14 +56,10 @@
             color: #ff69b4;
             text-shadow: 2px 2px #ffd1dc;
         }
-        p, .hint {
+        p {
             font-size: 1.5rem;
             margin-top: 10px;
             color: #ff85a2;
-        }
-        .hint {
-            cursor: pointer;
-            text-decoration: underline;
         }
         .balloon {
             position: absolute;
@@ -93,18 +89,6 @@
             left: 50%;
             transform: translateX(-50%);
         }
-        #clue-box, #answer-box {
-            position: absolute;
-            bottom: 10%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ffdde1;
-            padding: 15px 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            display: none;
-            opacity: 0;
-        }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
@@ -115,17 +99,6 @@
 
     <div class="container">
         <h1>Happy Birthday!</h1>
-        <p>There's a treasure hunt just for you! 🎉</p>
-        <p class="hint" id="start-hunt">Click here to start your adventure!</p>
-    </div>
-
-    <div id="clue-box">
-        <p id="clue-text">Clue 1: "What is something that belongs to you, but others use it more than you do?"</p>
-        <p class="hint" id="next-clue">Click here for the next clue!</p>
-    </div>
-
-    <div id="answer-box">
-        <p>Your present is your own domain: <strong>claudiajezewski.com</strong> 🎉</p>
     </div>
 
     <script>
