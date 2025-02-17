@@ -84,6 +84,15 @@
             background: #555;
             border-radius: 5px;
         }
+        .penguin {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/e/ec/Penguin.svg') no-repeat center/contain;
+            bottom: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
         #clue-box, #answer-box {
             position: absolute;
             bottom: 10%;
@@ -111,7 +120,7 @@
     </div>
 
     <div id="clue-box">
-        <p id="clue-text">Clue 1: "What is something that belongs to you, but others will use more than you do?"</p>
+        <p id="clue-text">Clue 1: "What is something that belongs to you, but others use it more than you do?"</p>
         <p class="hint" id="next-clue">Click here for the next clue!</p>
     </div>
 
@@ -126,13 +135,17 @@
             { opacity: 1, scale: 1, duration: 1.5, ease: "elastic.out(1, 0.5)" }
         );
 
-        // Generate balloons
+        // Generate balloons with penguins on top
         function createBalloon() {
             const balloon = document.createElement("div");
             balloon.classList.add("balloon");
             balloon.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
             balloon.style.left = `${Math.random() * 100}vw`;
             document.body.appendChild(balloon);
+
+            const penguin = document.createElement("div");
+            penguin.classList.add("penguin");
+            balloon.appendChild(penguin);
 
             gsap.to(balloon, {
                 y: "-120vh",
@@ -142,51 +155,6 @@
             });
         }
         setInterval(createBalloon, 500);
-
-        // Treasure Hunt Logic
-        const startHunt = document.getElementById("start-hunt");
-        const clueBox = document.getElementById("clue-box");
-        const nextClue = document.getElementById("next-clue");
-        const clueText = document.getElementById("clue-text");
-        const answerBox = document.getElementById("answer-box");
-
-        const clues = [
-            "Clue 1: \"What is something that belongs to you, but others will use more than you do?\",",
-            "Clue 2: \"I’m the place you visit to explore, connect, and discover. What am I?\"",
-            "Clue 3: \"I’m always running, but I never move. What am I?\"",
-        ];
-
-        let currentClue = 0;
-
-        startHunt.addEventListener("click", () => {
-            gsap.to(clueBox, {
-                display: "block",
-                opacity: 1,
-                duration: 1,
-                ease: "power2.out"
-            });
-            startHunt.style.display = "none";
-        });
-
-        nextClue.addEventListener("click", () => {
-            currentClue++;
-            if (currentClue < clues.length) {
-                clueText.textContent = clues[currentClue];
-            } else {
-                gsap.to(answerBox, {
-                    display: "block",
-                    opacity: 1,
-                    duration: 1,
-                    ease: "power2.out"
-                });
-                gsap.to(clueBox, {
-                    opacity: 0,
-                    duration: 0.5,
-                    ease: "power2.inOut",
-                    onComplete: () => clueBox.style.display = "none"
-                });
-            }
-        });
     </script>
 </body>
 </html>
