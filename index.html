@@ -80,29 +80,12 @@
             background: #555;
             border-radius: 5px;
         }
-        .penguin {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background: url('https://upload.wikimedia.org/wikipedia/commons/6/6b/New_penguin.svg') no-repeat center/contain;
-            bottom: 90px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .star {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            background-color: #ffdd57;
-            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-            top: 100vh;
-        }
         .koala {
             position: absolute;
             width: 50px;
             height: 50px;
             background: url('https://upload.wikimedia.org/wikipedia/commons/7/77/Phantom_Open_Emoji_1f428.svg') no-repeat center/contain;
-            bottom: 70px;
+            bottom: 90px;
             left: 50%;
             transform: translateX(-50%);
         }
@@ -125,7 +108,7 @@
             { opacity: 1, scale: 1, duration: 1.5, ease: "elastic.out(1, 0.5)" }
         );
 
-        // Generate balloons with penguins
+        // Generate balloons with koalas
         function createBalloon() {
             const balloon = document.createElement("div");
             balloon.classList.add("balloon");
@@ -133,9 +116,9 @@
             balloon.style.left = `${Math.random() * 100}vw`;
             document.body.appendChild(balloon);
 
-            const penguin = document.createElement("div");
-            penguin.classList.add("penguin");
-            balloon.appendChild(penguin);
+            const koala = document.createElement("div");
+            koala.classList.add("koala");
+            balloon.appendChild(koala);
 
             gsap.to(balloon, {
                 y: "-120vh",
@@ -145,27 +128,7 @@
             });
         }
 
-        // Generate stars with koalas
-        function createStar() {
-            const star = document.createElement("div");
-            star.classList.add("star");
-            star.style.left = `${Math.random() * 100}vw`;
-            document.body.appendChild(star);
-
-            const koala = document.createElement("div");
-            koala.classList.add("koala");
-            star.appendChild(koala);
-
-            gsap.to(star, {
-                y: "-120vh",
-                duration: 6 + Math.random() * 4,
-                ease: "linear",
-                onComplete: () => star.remove()
-            });
-        }
-
         setInterval(createBalloon, 500);
-        setInterval(createStar, 800);
     </script>
 </body>
 </html>
