@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='40' r='30' fill='%23FF69B4'/><rect x='45' y='70' width='10' height='20' fill='%23555'/></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='40' r='30' fill='%23008080'/><rect x='45' y='70' width='10' height='20' fill='%23555'/></svg>">
     <title>In the News</title>
     <style>
         body {
@@ -15,14 +15,16 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh; /* Use min-height for content flow */
+            /* Updated teal gradient background */
             background: linear-gradient(135deg, #008080, #20B2AA);
             text-align: center;
         }
         .menu {
             width: 100%;
             padding: 10px 20px;
-            background: #ff85a2;
+             /* Updated menu background to dark teal */
+            background: #004d40;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             position: fixed;
@@ -40,7 +42,8 @@
             text-decoration: underline;
         }
         .content {
-            margin-top: 80px;
+            margin-top: 80px; /* Ensure content is below fixed menu */
+            margin-bottom: 20px; /* Add some space at the bottom */
             padding: 20px;
             max-width: 600px;
             background: white;
@@ -49,15 +52,20 @@
         }
         h1 {
             font-size: 2.5rem;
-            color: #ff69b4;
+            /* Updated heading colour to teal */
+            color: #008080;
         }
         p {
             font-size: 1.2rem;
+            /* Paragraph colour kept as default #555 from original */
             color: #555;
+            line-height: 1.6; /* Improve readability */
         }
         a.news-link {
-            color: #ff69b4;
+            /* Updated link colour to lighter teal */
+            color: #20B2AA;
             text-decoration: none;
+            font-weight: bold; /* Make link stand out more */
         }
         a.news-link:hover {
             text-decoration: underline;
@@ -73,6 +81,6 @@
     <div class="content">
         <h1>In the News</h1>
         <p><strong>Daily Telegraph:</strong> <a class="news-link" href="https://www.dailytelegraph.com.au/news/nsw/sydney-cold-dry-snap-a-godsend-after-extreme-weather-track-record/news-story/9ab77f6ab1a45c32b680695b8e5c29b8" target="_blank">Sydney’s cold dry snap a godsend after extreme wet weather</a> - 11 June 2022</p>
-    </div>
+         </div>
 </body>
 </html>
