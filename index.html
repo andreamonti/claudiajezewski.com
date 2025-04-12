@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='40' r='30' fill='%23FF69B4'/><rect x='45' y='70' width='10' height='20' fill='%23555'/></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='40' r='30' fill='%23008080'/><rect x='45' y='70' width='10' height='20' fill='%23555'/></svg>">
     <title>Claudia Jezewski</title>
     <style>
         body {
@@ -15,6 +15,7 @@
             flex-direction: column;
             align-items: center;
             height: 100vh;
+            /* Updated teal gradient background */
             background: linear-gradient(135deg, #008080, #20B2AA);
             overflow: hidden;
             position: relative;
@@ -22,6 +23,7 @@
         .menu {
             width: 100%;
             padding: 10px 20px;
+            /* Updated menu background to dark teal */
             background: #004d40;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -53,19 +55,22 @@
         h1 {
             font-size: 3rem;
             margin: 0;
-            color: #ff69b4;
-            text-shadow: 2px 2px #ffd1dc;
+            /* Updated heading colour to teal */
+            color: #008080;
+            /* Updated text shadow to light teal */
+            text-shadow: 2px 2px #e0f2f1;
         }
-        p {
+        p { /* Note: This paragraph style might not be used if there's no <p> tag in the container */
             font-size: 1.5rem;
             margin-top: 10px;
-            color: #ff85a2;
+            /* Updated paragraph colour to dark grey */
+            color: #555555;
         }
         .balloon {
             position: absolute;
             width: 60px;
             height: 80px;
-            background-color: #ff7f50;
+            background-color: #ff7f50; /* Balloon colour unchanged, adjust if desired */
             border-radius: 50%;
             top: 100vh;
         }
@@ -100,12 +105,12 @@
 
     <div class="container">
         <h1>Claudia Jezewski</h1>
-    </div>
+        </div>
 
     <script>
         // GSAP animation for the container
-        gsap.fromTo(".container", 
-            { opacity: 0, scale: 0.5 }, 
+        gsap.fromTo(".container",
+            { opacity: 0, scale: 0.5 },
             { opacity: 1, scale: 1, duration: 1.5, ease: "elastic.out(1, 0.5)" }
         );
 
@@ -113,6 +118,7 @@
         function createBalloon() {
             const balloon = document.createElement("div");
             balloon.classList.add("balloon");
+            // Random balloon colour generation - kept as is
             balloon.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
             balloon.style.left = `${Math.random() * 100}vw`;
             document.body.appendChild(balloon);
